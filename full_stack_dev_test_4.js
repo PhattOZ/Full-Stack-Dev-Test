@@ -3,13 +3,21 @@ function numberToDate(number) {
     return "error";
   }
 
-  const DAYS = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  const DAYS = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
 
   return DAYS[number];
 }
 
-console.log(numberToDate(-1));
-console.log(numberToDate("bloom"));
+console.log(numberToDate(-1)); // error
+console.log(numberToDate("bloom")); // error
 
-console.log(numberToDate(0));
-console.log(numberToDate(5));
+console.log(numberToDate(0)); // Sunday
+console.log(numberToDate(5)); // Friday

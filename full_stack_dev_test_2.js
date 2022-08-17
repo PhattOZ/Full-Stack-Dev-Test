@@ -1,5 +1,5 @@
 function recursiveTreeSearch(node, key) {
-  // Base case: return when found
+  // Base case
   if (node.id === key) {
     return node;
   }
@@ -33,4 +33,6 @@ const tree = {
   ],
 };
 
-console.log(recursiveTreeSearch(tree, 4));
+console.log(recursiveTreeSearch(tree, 0)); // null
+
+console.log(recursiveTreeSearch(tree, 4)); // { id: 4, tag: '', data: { title: 'Fan' }, children: [] }

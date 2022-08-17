@@ -6,6 +6,8 @@ function isAvailable(node, dateTime) {
   // Later, I thought of using the given node.weekdayFrequency but the given datetime
   // is 1 January 2020 which is Wednesday (3rd index) which is not included in node.weekdayFrequency
 
+  // Therefore, I commented out the following part
+
   // const isInWorkingDay = node.weekdayFrequency.includes(dateTime.getUTCDay());
 
   // if (!isInWorkingDay) {
@@ -18,6 +20,7 @@ function isAvailable(node, dateTime) {
 
   let isBetweenStartAndEndTime;
 
+  // Normalization
   const hour = ("0" + dateTime.getUTCHours()).slice(-2);
   const inputTime = hour + ":" + dateTime.getUTCMinutes();
 
@@ -37,7 +40,7 @@ const node = {
   weekdayFrequency: [0, 1, 2, 6],
 };
 
-const secondNode = {
+const sameDayNode = {
   id: 1,
   startTime: "01:00",
   endTime: "22:00",
@@ -45,6 +48,9 @@ const secondNode = {
 };
 
 const datetime = new Date("2020-01-01T01:30:00Z");
+const anotherDatetime = new Date("2020-01-01T22:30:00Z");
 
-console.log(isAvailable(node, datetime));
-console.log(isAvailable(secondNode, datetime));
+console.log(isAvailable(node, datetime)); // true
+console.log(isAvailable(sameDayNode, datetime)); // true
+
+console.log(isAvailable(sameDayNode, anotherDatetime)); // false
